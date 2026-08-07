@@ -1,4 +1,4 @@
-name: Build and deploy Nautical Dream
+name: Deploy Nautical Dream static publication
 
 on:
   push:
@@ -22,13 +22,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm install
-      - run: npm run build
+      - name: Validate static publication
+        run: node scripts/audit-static-site.mjs
+      - name: Assemble GitHub Pages artifact
+        run: |
+          mkdir _site
+          cp -- *.html styles.css robots.txt sitemap.xml CNAME _site/
+          cp -R assets _site/assets
+          touch _site/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./_site
 
   deploy:
     environment:
