@@ -23,7 +23,9 @@ jobs:
         with:
           node-version: 20
       - name: Validate static publication
-        run: node scripts/audit-static-site.mjs
+        run: |
+          node scripts/build-authority.mjs
+          node scripts/audit-static-site.mjs
       - name: Assemble GitHub Pages artifact
         run: |
           mkdir _site
