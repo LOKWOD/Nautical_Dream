@@ -12,5 +12,7 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+      - name: Generate authority pages
+        run: npm run build:authority
       - name: Validate links and image files
         run: npm run audit:site
