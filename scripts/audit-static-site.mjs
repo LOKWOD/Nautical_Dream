@@ -1,6 +1,9 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { extname, join, normalize } from "node:path";
 import { authorityHubs } from "../content/authority-batch.mjs";
+import { authorityHubsTwo } from "../content/authority-batch-two.mjs";
+
+const allAuthorityHubs = [...authorityHubs, ...authorityHubsTwo];
 
 const root = process.cwd();
 const htmlFiles = readdirSync(root).filter((file) => file.endsWith(".html"));
@@ -8,7 +11,7 @@ const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
 const problems = [];
 const checkedAssets = new Set();
 const authorityPages = new Map();
-for (const hub of authorityHubs) {
+for (const hub of allAuthorityHubs) {
   authorityPages.set(hub.slug, { kind: "hub", hub });
   for (const article of hub.articles) authorityPages.set(article[0], { kind: "article", hub });
 }
