@@ -1,0 +1,142 @@
+const hub = (slug, title, label, kind, image, intro, articles) => ({ slug, title, label, kind, image, intro, articles });
+
+export const authorityHubsTwo = [
+  hub("fishing-electronics.html", "Fishing Electronics", "Fishing Electronics", "gear", "assets/editorial/gear-navigation.jpg", "Build a useful fishing-electronics system by matching sonar, mapping, transducers, power and installation to the water and species you actually fish.", [
+    ["fish-finder-buying-guide.html", "Fish Finder Buying Guide", "Compare sonar types, screen sizes, mapping and transducers without paying for features your fishing will not use."],
+    ["side-imaging-sonar-explained.html", "Side-Imaging Sonar Explained", "Understand range, boat speed, image interpretation and installation details that determine useful side imaging."],
+    ["down-imaging-vs-traditional-sonar.html", "Down Imaging vs. Traditional Sonar", "Learn what each sonar view reveals and why capable anglers use them together rather than choosing by screenshots."],
+    ["fish-finder-transducer-placement.html", "Fish Finder Transducer Placement", "Plan clean water flow, cable routing and mounting height before drilling the transom."],
+  ]),
+  hub("kids-on-boats.html", "Kids on Boats", "Kids on Boats", "family", "assets/editorial/journal-family-pontoon.jpg", "Make boating comfortable and memorable for children with fitted flotation, short itineraries, clear rules, useful jobs and realistic expectations by age.", [
+    ["life-jackets-for-kids-guide.html", "Life Jackets for Kids: Fit and Selection", "Choose, test and maintain child flotation around actual weight, fit, water activity and supervision."],
+    ["boat-activities-for-kids.html", "Boat Activities for Kids", "Use simple observation, navigation and shore activities to keep children engaged without cluttering the cockpit."],
+    ["boating-with-toddlers.html", "Boating With Toddlers", "Plan shade, naps, movement rules and very short outings around a toddler’s real limits."],
+    ["teaching-kids-boating-safety.html", "Teaching Kids Boating Safety", "Turn rules, equipment and emergency actions into calm routines children can remember."],
+  ]),
+  hub("weekend-boating-trips.html", "Weekend Boating Trips", "Weekend Trips", "destination", "assets/editorial/lake-george-cruise.jpg", "Design Northeast boating weekends that fit the tow, weather window, crew energy and shore logistics instead of losing half the trip to an overloaded plan.", [
+    ["two-day-boating-itinerary.html", "How to Build a Two-Day Boating Itinerary", "Balance arrival, launching, cruising, meals and recovery time in a weekend that remains enjoyable."],
+    ["northeast-boating-weekend-packing.html", "Northeast Boating Weekend Packing List", "Pack for sun, cold water, rain, children, repairs and shore time without burying critical gear."],
+    ["choosing-weekend-boating-destination.html", "Choosing a Weekend Boating Destination", "Compare drive time, launch access, shelter, shore stops and forecast exposure before committing."],
+    ["rainy-weekend-boating-plan.html", "Building a Rainy-Weekend Backup Plan", "Protect the family weekend with useful shore alternatives and conservative go-or-no-go triggers."],
+  ]),
+  hub("luxury-boating.html", "Luxury Boating", "Luxury Boating", "boat-type", "assets/editorial/newport-harbor.jpg", "Approach luxury boating as an ownership and service system, balancing comfort, crew needs, marina access, operating cost and the work behind effortless presentation.", [
+    ["luxury-day-boat-buying-guide.html", "Luxury Day Boat Buying Guide", "Compare entertaining space, ride, finish, service access and resale in premium day boats."],
+    ["private-yacht-charter-planning.html", "Private Yacht Charter Planning", "Clarify itinerary, crew, provisioning, gratuity and contract details before booking."],
+    ["premium-marina-services.html", "Premium Marina Services Explained", "Evaluate concierge support, power, security, provisioning and storm planning beyond the glossy amenities list."],
+    ["luxury-boat-ownership-costs.html", "Luxury Boat Ownership Costs", "Budget for dockage, detailing, systems, professional service and depreciation at the premium end."],
+  ]),
+  hub("center-console-boats.html", "Center Console Boats", "Center Consoles", "boat-type", "assets/editorial/winnipesaukee-cruise.jpg", "Choose a center console around sea conditions, family use, fishing layout, range and protection rather than horsepower and rod holders alone.", [
+    ["center-console-buying-guide.html", "Center Console Buying Guide", "Compare hull, size, seating, storage, systems and power for Northeast coastal and inland use."],
+    ["single-vs-twin-outboards.html", "Single vs. Twin Outboards", "Weigh redundancy, maneuverability, maintenance, performance and total operating cost."],
+    ["center-console-family-setup.html", "Setting Up a Center Console for Family Use", "Add shade, seating, storage and safety without ruining fishing access or weight balance."],
+    ["center-console-trailering.html", "Center Console Trailering Guide", "Plan tow ratings, beam, height, launch depth and securing systems for a large open boat."],
+  ]),
+  hub("cabin-cruisers.html", "Cabin Cruisers", "Cabin Cruisers", "boat-type", "assets/editorial/chesapeake-sailing.jpg", "Evaluate cabin cruisers as compact living systems where ventilation, power, plumbing, storage and handling matter as much as overnight berths.", [
+    ["cabin-cruiser-buying-guide.html", "Cabin Cruiser Buying Guide", "Compare layouts, propulsion, systems and practical sleeping capacity before choosing a cruiser."],
+    ["first-overnight-on-boat.html", "Your First Overnight on a Boat", "Prepare power, water, ventilation, meals and sleeping arrangements for a calm first night aboard."],
+    ["cabin-cruiser-electrical-systems.html", "Cabin Cruiser Electrical Systems", "Understand shore power, batteries, charging, loads and safe energy management."],
+    ["small-cruiser-provisioning.html", "Provisioning a Small Cruiser", "Plan cold storage, water, meals and waste around space and trip duration."],
+  ]),
+  hub("yacht-ownership.html", "Yachts and Yacht Ownership", "Yachts", "boat-type", "assets/editorial/newport-castle-hill.jpg", "Understand yacht ownership through mission, crew, systems, dockage, maintenance and lifecycle cost rather than length and prestige alone.", [
+    ["first-yacht-buying-guide.html", "Buying Your First Yacht", "Define intended cruising, professional support, budget and systems complexity before shopping."],
+    ["yacht-survey-sea-trial.html", "Yacht Survey and Sea Trial", "Coordinate hull, mechanical and systems evaluation into one disciplined purchase decision."],
+    ["yacht-crew-vs-owner-operated.html", "Crewed vs. Owner-Operated Yachts", "Compare workload, training, privacy, insurance and operating scale."],
+    ["annual-yacht-budget.html", "Building an Annual Yacht Budget", "Estimate dockage, service, fuel, insurance, upgrades and reserves without relying on one percentage rule."],
+  ]),
+  hub("boat-diy-projects.html", "Boat DIY Projects", "DIY Projects", "maintenance", "assets/editorial/journal-engine-maintenance.jpg", "Complete boat projects safely by defining scope, protecting structure and wiring, using marine materials and knowing when specialist work is the economical choice.", [
+    ["beginner-boat-diy-projects.html", "Beginner Boat DIY Projects", "Start with useful low-risk upgrades that teach access, sealing, wiring and documentation."],
+    ["marine-wiring-diy-basics.html", "Marine Wiring DIY Basics", "Plan circuit protection, conductor size, terminations, support and labeling for dependable additions."],
+    ["installing-boat-accessories.html", "Installing Boat Accessories Without Creating Leaks", "Use backing, bedding and careful hole preparation for durable deck-mounted equipment."],
+    ["when-not-to-diy-boat-repair.html", "When Not to DIY a Boat Repair", "Recognize structural, fuel, steering, propulsion and electrical work that needs qualified help."],
+  ]),
+  hub("boat-cleaning.html", "Boat Cleaning", "Boat Cleaning", "maintenance", "assets/editorial/journal-classic-boat.jpg", "Clean a boat efficiently with surface-specific products, sensible frequency and techniques that protect gelcoat, metal, vinyl and waterways.", [
+    ["boat-cleaning-schedule.html", "A Practical Boat Cleaning Schedule", "Separate after-trip, weekly, monthly and seasonal cleaning so neglect never becomes restoration."],
+    ["cleaning-boat-gelcoat.html", "Cleaning Boat Gelcoat", "Remove grime and staining without stripping protection or creating unnecessary abrasion."],
+    ["boat-vinyl-cleaning.html", "Boat Vinyl Cleaning and Mildew Prevention", "Clean seams, dry cushions and improve storage conditions before mildew takes hold."],
+    ["boat-interior-cleaning.html", "Cabin and Boat Interior Cleaning", "Manage moisture, fabrics, heads, galleys and enclosed storage with marine-safe routines."],
+  ]),
+  hub("boat-storage.html", "Boat Storage", "Boat Storage", "ownership", "assets/editorial/journal-winter-storage.jpg", "Choose and manage storage around climate, access, security, ventilation, service needs and the work required to launch again.", [
+    ["indoor-vs-outdoor-boat-storage.html", "Indoor vs. Outdoor Boat Storage", "Compare protection, cost, access and preparation for Northeast seasons."],
+    ["dry-stack-storage-guide.html", "Dry-Stack Boat Storage Guide", "Understand scheduling, size limits, launch service, fuel rules and ownership routines."],
+    ["storing-boat-at-home.html", "Storing a Boat at Home", "Plan surface, drainage, security, neighborhood limits and maintenance access."],
+    ["boat-storage-ventilation.html", "Boat Storage Ventilation and Moisture Control", "Reduce mildew and corrosion through drying, airflow and sensible cover management."],
+  ]),
+  hub("boat-launching.html", "Boat Launching", "Launching", "seamanship", "assets/editorial/journal-boat-trailer.jpg", "Make launching repeatable with staging, communication, ramp assessment and a sequence that works without rushing or blocking others.", [
+    ["boat-ramp-launch-checklist.html", "Boat Ramp Launch Checklist", "Use a concise staging-area sequence before backing onto the ramp."],
+    ["launching-boat-alone.html", "Launching a Boat Alone", "Prepare control lines, parking and recovery so a solo launch stays controlled."],
+    ["shallow-boat-ramp-launching.html", "Launching at a Shallow Boat Ramp", "Assess grade, traction, water depth and trailer position without drowning tow-vehicle components."],
+    ["busy-boat-ramp-etiquette.html", "Busy Boat Ramp Etiquette", "Stage away from the ramp, communicate clearly and solve problems outside the active lane."],
+  ]),
+  hub("marinas.html", "Marinas", "Marinas", "destination", "assets/editorial/erie-canal-fairport.jpg", "Choose and use marinas by looking beyond location to approach, depth, power, protection, fuel, transient procedures and the needs of the crew.", [
+    ["choosing-home-marina.html", "Choosing a Home Marina", "Compare access, protection, services, community and total seasonal cost."],
+    ["transient-slip-reservations.html", "Transient Slip Reservations", "Confirm dimensions, arrival windows, power, cancellation terms and after-hours instructions."],
+    ["marina-approach-planning.html", "Planning a Marina Approach", "Review charts, depth, current, traffic and dock assignment before entering the basin."],
+    ["marina-contract-questions.html", "Questions to Ask Before Signing a Marina Contract", "Clarify haul-out, storms, utilities, insurance, guests, winter storage and termination terms."],
+  ]),
+  hub("marine-fuel-management.html", "Marine Fuel Management", "Fuel Management", "ownership", "assets/editorial/journal-runabout.jpg", "Manage fuel as a safety system through realistic consumption, clean storage, reserve policy, careful fueling and early recognition of contamination.", [
+    ["boat-fuel-range-calculation.html", "How to Calculate Boat Fuel Range", "Use measured consumption, speed and a conservative reserve rather than brochure range."],
+    ["marine-fuel-stabilizer-guide.html", "Marine Fuel Stabilizer Guide", "Understand when stabilizer helps and why it cannot repair old or contaminated fuel."],
+    ["water-in-boat-fuel.html", "Water in Boat Fuel: Prevention and Response", "Recognize symptoms, inspect filtration and correct the source before repeated breakdowns."],
+    ["safe-boat-fueling.html", "Safe Boat Fueling Procedure", "Control ignition sources, ventilation, spills and passenger movement at the fuel dock."],
+  ]),
+  hub("boat-ramps.html", "Boat Ramps", "Boat Ramps", "destination", "assets/editorial/journal-boat-trailer.jpg", "Evaluate ramps through grade, depth, parking, wind exposure, traffic and local rules so arrival does not become the first inspection.", [
+    ["how-to-evaluate-boat-ramp.html", "How to Evaluate an Unfamiliar Boat Ramp", "Research access and inspect the lane, dock, depth and turnaround before committing."],
+    ["boat-ramp-parking-planning.html", "Boat Ramp Parking Planning", "Confirm capacity, payment, trailer rules and overflow options before a busy weekend."],
+    ["windy-boat-ramp-technique.html", "Launching and Retrieving at a Windy Ramp", "Use dock position, lines and crew roles to control drift without panic."],
+    ["boat-ramp-security.html", "Boat Ramp Security", "Reduce theft and break-in exposure through parking choices, inventory and visible discipline."],
+  ]),
+  hub("marine-communications.html", "Marine Communications", "Marine Communications", "gear", "assets/editorial/gear-navigation.jpg", "Build dependable communication with correct VHF use, DSC registration, antennas, backups and crew knowledge rather than a radio left on the wrong channel.", [
+    ["vhf-radio-basics.html", "VHF Radio Basics", "Learn channels, listening watch, call structure and the limits of marine radio."],
+    ["dsc-mmsi-setup.html", "DSC and MMSI Setup", "Register identity information and connect position data so distress features can work."],
+    ["marine-vhf-antenna-guide.html", "Marine VHF Antenna Guide", "Compare height, gain, mounting and cable quality as one communication system."],
+    ["satellite-communicator-for-boating.html", "Satellite Communicators for Boating", "Understand where satellite messaging complements rather than replaces VHF and emergency beacons."],
+  ]),
+  hub("marine-batteries.html", "Marine Batteries", "Marine Batteries", "gear", "assets/editorial/journal-engine-maintenance.jpg", "Choose and maintain marine batteries by starting with load, starting demand, chemistry, charging compatibility and the consequences of failure.", [
+    ["marine-battery-buying-guide.html", "Marine Battery Buying Guide", "Compare starting, deep-cycle, dual-purpose, AGM and lithium choices for the actual system."],
+    ["boat-battery-bank-sizing.html", "Sizing a Boat Battery Bank", "Turn energy use, reserve and charging time into a practical capacity target."],
+    ["lithium-boat-batteries.html", "Lithium Boat Batteries Explained", "Evaluate weight, cycle life, protection, charging and cold-weather limitations."],
+    ["boat-battery-charging.html", "Boat Battery Charging Systems", "Coordinate alternators, shore chargers, solar and battery management without incompatible settings."],
+  ]),
+  hub("boat-covers.html", "Boat Covers", "Boat Covers", "gear", "assets/editorial/journal-winter-storage.jpg", "Select and use boat covers around fit, support, ventilation, towability and weather load so protection does not trap moisture or abrade finishes.", [
+    ["boat-cover-buying-guide.html", "Boat Cover Buying Guide", "Compare custom, semi-custom, mooring and storage covers by the job they must perform."],
+    ["covering-boat-for-winter.html", "Covering a Boat for Winter", "Build support, drainage and ventilation for Northeast snow, wind and freeze cycles."],
+    ["trailerable-boat-covers.html", "Trailerable Boat Covers", "Understand securement, fabric, speed and abrasion before towing with a cover."],
+    ["boat-cover-care-repair.html", "Boat Cover Care and Repair", "Clean fabric, restore water resistance and repair small failures before they spread."],
+  ]),
+  hub("marine-corrosion.html", "Marine Corrosion Prevention", "Corrosion Prevention", "maintenance", "assets/editorial/journal-engine-maintenance.jpg", "Control corrosion through material awareness, anodes, electrical integrity, rinsing and inspection rather than hoping stainless hardware makes the problem disappear.", [
+    ["galvanic-corrosion-boats.html", "Galvanic Corrosion on Boats", "Understand dissimilar metals, electrolytes and protection without confusing galvanic and stray-current damage."],
+    ["boat-anodes-guide.html", "Boat Anodes Guide", "Choose material, inspect consumption and replace anodes before protection is lost."],
+    ["saltwater-rinse-routine.html", "A Practical Saltwater Rinse Routine", "Prioritize cooling passages, metal, canvas and hidden salt without wasting time or water."],
+    ["stray-current-corrosion.html", "Stray-Current Corrosion", "Recognize rapid damage patterns and involve qualified electrical help early."],
+  ]),
+  hub("fiberglass-gelcoat.html", "Fiberglass and Gelcoat", "Fiberglass and Gelcoat", "maintenance", "assets/editorial/journal-classic-boat.jpg", "Care for fiberglass structure and gelcoat finish by distinguishing cosmetic wear from moisture, cracking and structural movement that need deeper investigation.", [
+    ["gelcoat-oxidation-restoration.html", "Gelcoat Oxidation and Restoration", "Match cleaning, compounding, polishing and protection to the actual condition."],
+    ["small-gelcoat-repair.html", "Small Gelcoat Repair", "Plan color, preparation, fill and finishing for minor chips and scratches."],
+    ["fiberglass-cracks-explained.html", "Fiberglass Cracks Explained", "Separate common surface crazing from stress patterns that justify professional evaluation."],
+    ["boat-wax-sealant-ceramic.html", "Boat Wax vs. Sealant vs. Ceramic Coating", "Compare preparation, durability, maintenance and realistic use cases."],
+  ]),
+  hub("northeast-cruising.html", "Northeast Coastal Cruising", "Northeast Cruising", "destination", "assets/editorial/cape-cod-canal.jpg", "Plan Northeast coastal cruising around tides, cold water, fog, commercial traffic, harbor refuge and the large seasonal differences hidden by short chart distances.", [
+    ["northeast-cruising-first-trip.html", "Planning a First Northeast Coastal Cruise", "Choose sheltered segments, short days and dependable harbors for the first cruise."],
+    ["fog-navigation-northeast.html", "Fog Planning for Northeast Boaters", "Prepare equipment, speed, sound signals, lookout and escape options before visibility falls."],
+    ["northeast-harbor-hopping.html", "Northeast Harbor-Hopping", "Build a route around refuge, reservations, fuel and daylight rather than maximum mileage."],
+    ["cold-water-coastal-cruising.html", "Cold-Water Coastal Cruising", "Align clothing, flotation, recovery and weather margins with water temperature."],
+  ]),
+  hub("boating-emergencies.html", "Boating Emergency Readiness", "Emergency Readiness", "seamanship", "assets/editorial/gear-life-jacket.jpg", "Prepare for boating emergencies with reachable equipment, practiced crew actions, clear communication and early decisions that keep small failures from escalating.", [
+    ["boat-fire-response.html", "Boat Fire Prevention and Response", "Control ignition risks and understand immediate actions without overestimating portable extinguishers."],
+    ["engine-failure-on-water.html", "What to Do When the Engine Fails", "Stabilize the boat, assess hazards, communicate and choose the safest recovery path."],
+    ["taking-on-water-response.html", "Responding to Water Intrusion", "Find the source, slow ingress, dewater, communicate and move toward safety early."],
+    ["marine-first-aid-planning.html", "Marine First-Aid Planning", "Match supplies, training, communication and evacuation plans to trip distance and crew needs."],
+  ]),
+  hub("boat-docking-equipment.html", "Docking Equipment", "Docking Equipment", "gear", "assets/editorial/journal-dock-lines.jpg", "Choose lines, fenders, hooks and boarding aids as a coordinated system sized for the boat, dock geometry, weather and crew capability.", [
+    ["dock-line-buying-guide.html", "Dock Line Buying Guide", "Compare diameter, construction, length and quantity for home and transient dockage."],
+    ["boat-fender-buying-guide.html", "Boat Fender Buying Guide", "Choose style, size, number and placement for the hull and docks you actually use."],
+    ["boat-hook-guide.html", "Boat Hooks and Docking Aids", "Use reach tools and line-handling aids without turning them into unsafe leverage points."],
+    ["boarding-aids-for-boats.html", "Boat Boarding Aids", "Improve safe access for children and adults through steps, handles, lighting and dock setup."],
+  ]),
+  hub("boat-comfort-systems.html", "Boat Comfort Systems", "Comfort Systems", "gear", "assets/editorial/journal-family-pontoon.jpg", "Improve comfort without overloading space and power by prioritizing shade, seating, ventilation, refrigeration and the crew’s most common complaints.", [
+    ["boat-shade-options.html", "Boat Shade Options", "Compare biminis, extensions, umbrellas and fixed structures for coverage, wind and storage."],
+    ["marine-refrigeration-guide.html", "Marine Refrigeration Guide", "Understand power, ventilation, capacity and use patterns before adding cold storage."],
+    ["boat-seating-upgrades.html", "Boat Seating and Comfort Upgrades", "Improve support, movement and durability without blocking access or changing safe capacity."],
+    ["boat-ventilation-guide.html", "Boat Ventilation Guide", "Use passive and powered airflow to control heat, odors and moisture."],
+  ]),
+];

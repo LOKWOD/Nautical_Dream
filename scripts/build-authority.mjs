@@ -1,5 +1,8 @@
 import { writeFileSync, readFileSync } from "node:fs";
 import { authorityHubs } from "../content/authority-batch.mjs";
+import { authorityHubsTwo } from "../content/authority-batch-two.mjs";
+
+const allAuthorityHubs = [...authorityHubs, ...authorityHubsTwo];
 
 const root = process.cwd();
 const esc = (s = "") => String(s).replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
@@ -60,14 +63,14 @@ function renderArticle(hub, article) {
 }
 
 const files = [];
-for (const hub of authorityHubs) {
+for (const hub of allAuthorityHubs) {
   writeFileSync(`${root}/${hub.slug}`, renderHub(hub)); files.push(hub.slug);
   for (const article of hub.articles) { writeFileSync(`${root}/${article[0]}`, renderArticle(hub,article)); files.push(article[0]); }
 }
 
-const hubCards = authorityHubs.map(hub => `<article class="hub-card"><span>${esc(hub.kind.toUpperCase())}</span><h3><a href="${hub.slug}">${esc(hub.title)}</a></h3><p>${esc(hub.intro)}</p><a class="text-link" href="${hub.slug}">Explore ${esc(hub.label)} →</a></article>`).join("");
+const hubCards = allAuthorityHubs.map(hub => `<article class="hub-card"><span>${esc(hub.kind.toUpperCase())}</span><h3><a href="${hub.slug}">${esc(hub.title)}</a></h3><p>${esc(hub.intro)}</p><a class="text-link" href="${hub.slug}">Explore ${esc(hub.label)} →</a></article>`).join("");
 const authorityDescription = "Explore Nautical Dream's Northeast boating authority library: destination planning, ownership, maintenance, seamanship, electronics and family boating.";
-const authorityBody = `<section class="article-hero" style="--hero:url('assets/editorial/lake-george-cruise.jpg')"><div class="shell"><div class="eyebrow">Nautical Dream field library</div><h1>The Northeast boater’s library.</h1><p>Twenty organized topic hubs connect destination planning, ownership, seamanship, maintenance and gear—without dead ends.</p></div></section><section class="section"><div class="shell"><div class="section-head"><div><div class="eyebrow" style="color:var(--blue)">Authority topics</div><h2>Start with the decision in front of you.</h2></div><p>Each hub begins with orientation, then leads to focused beginner and expert guides.</p></div><div class="hub-grid authority-index">${hubCards}</div></div></section>`;
+const authorityBody = `<section class="article-hero" style="--hero:url('assets/editorial/lake-george-cruise.jpg')"><div class="shell"><div class="eyebrow">Nautical Dream field library</div><h1>The Northeast boater’s library.</h1><p>Forty-three organized topic hubs connect destination planning, ownership, seamanship, maintenance and gear—without dead ends.</p></div></section><section class="section"><div class="shell"><div class="section-head"><div><div class="eyebrow" style="color:var(--blue)">Authority topics</div><h2>Start with the decision in front of you.</h2></div><p>Each hub begins with orientation, then leads to focused beginner and expert guides.</p></div><div class="hub-grid authority-index">${hubCards}</div></div></section>`;
 writeFileSync(`${root}/boating-library.html`, shell({title:"Northeast Boating Resource Library",description:authorityDescription,slug:"boating-library.html",image:"assets/editorial/lake-george-cruise.jpg",type:"CollectionPage",body:authorityBody}));
 files.push("boating-library.html");
 
@@ -78,4 +81,4 @@ for (const file of files) {
   if (!sitemap.includes(url)) sitemap = sitemap.replace("</urlset>",`  <url><loc>${url}</loc></url>\n</urlset>`);
 }
 writeFileSync(sitemapPath,sitemap);
-console.log(`Built ${authorityHubs.length} authority hubs, 80 supporting guides and one library index (${files.length} pages).`);
+console.log(`Built ${allAuthorityHubs.length} authority hubs, ${allAuthorityHubs.reduce((sum, hub) => sum + hub.articles.length, 0)} supporting guides and one library index (${files.length} pages).`);
