@@ -1,11 +1,19 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { extname, join, normalize } from "node:path";
+import { authorityHubs } from "../content/authority-batch.mjs";
 
 const root = process.cwd();
 const htmlFiles = readdirSync(root).filter((file) => file.endsWith(".html"));
 const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
 const problems = [];
 const checkedAssets = new Set();
+const authorityPages = new Map();
+for (const hub of authorityHubs) {
+  authorityPages.set(hub.slug, { kind: "hub", hub });
+  for (const article of hub.articles) authorityPages.set(article[0], { kind: "article", hub });
+}
+authorityPages.set("boating-library.html", { kind: "index" });
+const seenDescriptions = new Map();
 const editorialGroups = {
   destinations: {
     files: ["lake-george-guide.html", "thousand-islands-guide.html", "finger-lakes-guide.html", "lake-champlain-guide.html", "lake-winnipesaukee-guide.html", "newport-rhode-island-guide.html", "cape-cod-guide.html", "chesapeake-bay-guide.html", "erie-canal-guide.html"],
@@ -141,6 +149,21 @@ for (const htmlFile of htmlFiles) {
     if ((html.match(/<h1\b/gi) || []).length !== 1) problems.push(`${htmlFile}: must contain exactly one h1`);
     const publicUrl = htmlFile === "index.html" ? "https://nauticaldream.com/" : `https://nauticaldream.com/${htmlFile}`;
     if (!sitemap.includes(publicUrl)) problems.push(`${htmlFile}: missing from sitemap.xml`);
+    const descriptionMatch = html.match(/<meta\s+name=["']description["']\s+content=(["'])(.*?)\1/i);
+    const description = descriptionMatch?.[2];
+    if (description) {
+      if (seenDescriptions.has(description)) problems.push(`${htmlFile}: duplicates meta description from ${seenDescriptions.get(description)}`);
+      else seenDescriptions.set(description, htmlFile);
+    }
+  }
+
+  const authority = authorityPages.get(htmlFile);
+  if (authority) {
+    const words = wordCount(html);
+    const minimum = authority.kind === "article" ? 850 : authority.kind === "hub" ? 450 : 180;
+    if (words < minimum) problems.push(`${htmlFile}: ${words} words; authority ${authority.kind} requires at least ${minimum}`);
+    if (!/application\/ld\+json/i.test(html)) problems.push(`${htmlFile}: authority page missing structured data`);
+    if (authority.kind === "article" && !html.includes(`href="${authority.hub.slug}"`)) problems.push(`${htmlFile}: missing backlink to ${authority.hub.slug}`);
   }
 
   const rule = editorialRules.get(htmlFile);
