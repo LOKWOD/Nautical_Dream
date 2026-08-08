@@ -11,9 +11,16 @@ const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
 const problems = [];
 const checkedAssets = new Set();
 const authorityPages = new Map();
+const authoritySlugs = new Set();
 for (const hub of allAuthorityHubs) {
+  if (authoritySlugs.has(hub.slug)) problems.push(`authority catalog: duplicate slug ${hub.slug}`);
+  authoritySlugs.add(hub.slug);
   authorityPages.set(hub.slug, { kind: "hub", hub });
-  for (const article of hub.articles) authorityPages.set(article[0], { kind: "article", hub });
+  for (const article of hub.articles) {
+    if (authoritySlugs.has(article[0])) problems.push(`authority catalog: duplicate slug ${article[0]}`);
+    authoritySlugs.add(article[0]);
+    authorityPages.set(article[0], { kind: "article", hub });
+  }
 }
 authorityPages.set("boating-library.html", { kind: "index" });
 const seenDescriptions = new Map();
@@ -51,6 +58,11 @@ const retiredGeneratedArtwork = [
   "assets/lake-winnipesaukee.svg",
   "assets/newport-rhode-island.svg",
   "assets/thousand-islands.svg",
+];
+const retiredAuthorityPassages = [
+  "This guide focuses on the decisions that remain useful after a product cycle",
+  "The first mistake is allowing arrival pressure to make the decision",
+  "Choose the option that still makes sense after adding installation, maintenance, storage, training and failure recovery",
 ];
 
 function plainText(html) {
@@ -163,10 +175,32 @@ for (const htmlFile of htmlFiles) {
   const authority = authorityPages.get(htmlFile);
   if (authority) {
     const words = wordCount(html);
-    const minimum = authority.kind === "article" ? 850 : authority.kind === "hub" ? 450 : 180;
+    const minimum = authority.kind === "article" ? 1700 : authority.kind === "hub" ? 900 : 180;
+    const maximum = authority.kind === "article" ? 2600 : authority.kind === "hub" ? 1400 : 2500;
     if (words < minimum) problems.push(`${htmlFile}: ${words} words; authority ${authority.kind} requires at least ${minimum}`);
+    if (words > maximum) problems.push(`${htmlFile}: ${words} words; authority ${authority.kind} maximum is ${maximum}`);
     if (!/application\/ld\+json/i.test(html)) problems.push(`${htmlFile}: authority page missing structured data`);
-    if (authority.kind === "article" && !html.includes(`href="${authority.hub.slug}"`)) problems.push(`${htmlFile}: missing backlink to ${authority.hub.slug}`);
+    if (authority.kind === "article") {
+      if (!html.includes(`href="${authority.hub.slug}"`)) problems.push(`${htmlFile}: missing backlink to ${authority.hub.slug}`);
+      const requiredModules = [
+        ["authority-table", "decision table"],
+        ["authority-steps", "field procedure"],
+        ["warning-list", "failure modes"],
+        ["authority-checklist", "field checklist"],
+        ["source-box", "primary-source box"],
+        ["related-content", "related-content navigation"],
+      ];
+      for (const [marker, label] of requiredModules) {
+        if (!html.includes(marker)) problems.push(`${htmlFile}: missing ${label}`);
+      }
+      const sectionCount = [...html.matchAll(/<section\s+class="article-section"/g)].length;
+      if (sectionCount < 8) problems.push(`${htmlFile}: only ${sectionCount} detailed sections; expected at least 8`);
+      const faqCount = [...html.matchAll(/<details>/g)].length;
+      if (faqCount < 4) problems.push(`${htmlFile}: only ${faqCount} FAQs; expected at least 4`);
+      for (const passage of retiredAuthorityPassages) {
+        if (html.includes(passage)) problems.push(`${htmlFile}: still contains retired generic authority copy`);
+      }
+    }
   }
 
   const rule = editorialRules.get(htmlFile);
